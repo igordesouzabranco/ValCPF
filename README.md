@@ -2,7 +2,7 @@
 
 ## Live Version
 
-🌐 **[Access the web version here](https://igordesouzabranco.github.io/calcIMC/)**
+🌐 **[Access the web version here](https://igordesouzabranco.github.io/ValCPF/)**
 
 ## Technologies Used
 
