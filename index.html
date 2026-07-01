@@ -7,6 +7,8 @@
     <title>CPFValidator</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
+<body>
     <nav>
         <h2>Validador de CPF</h2>
     </nav>
@@ -15,7 +17,32 @@
         <input type="text" id="cpf" placeholder="Digite seu CPF...">
         <button id="validate">Validar</button>
     </div>
-<body>
+    <div class="container">
+        <input type="checkbox" id="modal-toggle" class="modal-toggle">
+        <label for="modal-toggle" id="info">?</label>
+        <div class="modal-overlay">
+            <div class="modal-box">
+                <label for="modal-toggle" class="modal-close">&times;</label>
+                <h2>Como funciona a verificação do CPF</h2>
+
+                <p>O CPF (Cadastro de Pessoas Físicas) é composto por 11 dígitos, sendo que os dois últimos são dígitos
+                    verificadores, calculados a partir dos nove primeiros. Esses dígitos existem justamente para
+                    identificar erros de digitação e evitar números inválidos ou fraudados.</p>
+
+                <p>O cálculo do primeiro dígito verificador funciona assim: cada um dos nove primeiros números é
+                    multiplicado por um peso decrescente, começando em 10 e indo até 2. Os resultados dessas
+                    multiplicações são somados, e essa soma é dividida por 11. Se o resto da divisão for menor que 2, o
+                    dígito verificador é 0; caso contrário, o dígito é 11 menos o resto.</p>
+
+                <p>O segundo dígito verificador segue a mesma lógica, mas agora são usados os dez primeiros números do
+                    CPF (os nove originais mais o primeiro dígito verificador já calculado), com pesos decrescentes de
+                    11 até 2. O resultado passa pela mesma regra de divisão por 11 para chegar ao segundo dígito.</p>
+
+                <p>Um CPF só é considerado válido quando os dois dígitos calculados dessa forma coincidem com os dois
+                    últimos dígitos informados.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="./assets/js/main.js"></script>
 </body>

@@ -8,7 +8,7 @@
 .main-div {
     width: 450px;
     height: 300px;
-    background-color: #18ffff;
+    background-color: #00ccff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     justify-self: center;
@@ -17,7 +17,7 @@
 nav {
     width: 100%;
     height: 50px;
-    background-color: #18ffff;
+    background-color: #00ccff;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -55,4 +55,93 @@ input {
     border-radius: 5px;
     color: #000000;
     font-weight: bold;
+}
+
+.modal-toggle {
+    display: none;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: #d1d4ff;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.modal-box h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.modal-box p {
+    margin-bottom: 12px;
+}
+
+.modal-box p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-toggle:checked ~ .modal-overlay {
+    display: flex;
+}
+
+.modal-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-box::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+    background-color: #340a97;
+    border-radius: 8px;
+}
+
+.modal-box::-webkit-scrollbar-thumb:hover {
+    background-color: #8fd9e8;
+}
+
+#info {
+    width: 20px;
+    height: 20px;
+    background-color: #b3f6ff;
+    border-radius: 15%;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
