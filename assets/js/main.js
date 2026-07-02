@@ -4,10 +4,26 @@ const divResultado = document.querySelector('.main-div');
 let cpf;
 
 validateButton.addEventListener('click', () => {
+        if (!cpfInput.value.trim()) {
+            showResult('Por favor, digite um CPF.');
+            return;
+        }
         cpf = new ValidaCPF(cpfInput.value);
         getCPF();
         setCPF();
     });
+
+cpfInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        if (!cpfInput.value.trim()) {
+            showResult('Por favor, digite um CPF.');
+            return;
+        }
+        cpf = new ValidaCPF(cpfInput.value);
+        getCPF();
+        setCPF();
+    }
+});
 
 
 function getCPF() {
@@ -61,9 +77,19 @@ class ValidaCPF {
 
 }
 
-function setCPF() {
+function formatCPF(cpf) {
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+}
+
+function showResult(message) {
     const resultado = document.querySelector('.result') || document.createElement('h1');
     resultado.className = 'result';
-    resultado.textContent = cpf.valida() ? `O CPF ${cpf.cpfLimpo} é válido` : `O CPF ${cpf.cpfLimpo} é inválido`;
+    resultado.textContent = message;
     divResultado.appendChild(resultado);
+}
+
+function setCPF() {
+    const formatted = formatCPF(cpf.cpfLimpo);
+    const message = cpf.valida() ? `O CPF ${formatted} é válido` : `O CPF ${formatted} é inválido`;
+    showResult(message);
 }
